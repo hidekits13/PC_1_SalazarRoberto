@@ -1,0 +1,35 @@
+@model PC_1.Models.Registro
+
+<div class="text-center">
+    <h1 class="display-4">Registrese</h1>
+    <form asp-controller="Registro" asp-action="Registrar">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+
+        <h2>Escoger Cursos</h2>
+        <div class="form-group">    
+            <label asp-for="curso1" class="control-label"></label>
+            <input type="checkbox" asp-for="curso1">
+
+            <label asp-for="curso2" class="control-label"></label>
+            <input type="checkbox" asp-for="curso2">
+
+            <label asp-for="curso3" class="control-label"></label>
+            <input type="checkbox" asp-for="curso3">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Calcular total</button>
+    </form>
+
+    <h2>@ViewData["Name"]</h2>
+    <h3>@ViewData["cred"]</h3>
+    <h3>@ViewData["tot"]</h3>
+    <h3>@ViewData["igv"]</h3>
+    <h3>@ViewData["totigv"]</h3>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 
